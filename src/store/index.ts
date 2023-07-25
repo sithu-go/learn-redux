@@ -1,26 +1,14 @@
-import { configureStore, createSlice } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit"
+import authSlice from "./auth-slice"
+import cartSlice from "./cart-slice";
 
-const counterSlice = createSlice({
-    name: "counter",
-    initialState: { counter: 0 },
-    reducers: {
-        increment(state) {
-            state.counter++;
-        },
-        decrement(state) {
-            state.counter--;
-        },
-        addBy(state, action) {
-            state.counter += action.payload;
-        }
+const store = configureStore({
+    reducer: {
+        auth: authSlice.reducer,
+        cart: cartSlice.reducer,
     },
 })
 
-export const actions = counterSlice.actions;
+export default store;
 
-// Define RootState type using ReturnType utility
-export type RootState = ReturnType<typeof counterSlice.reducer>;
-
-export const store = configureStore({
-    reducer: counterSlice.reducer,
-});
+export type RootState = ReturnType<typeof store.getState>;
