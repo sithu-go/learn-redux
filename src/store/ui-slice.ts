@@ -4,6 +4,8 @@ import { NotificationStore } from "../types/store";
 
 const initialState: NotificationStore = {
     notification: null,
+    changed: false,
+    showCart: false
 }
 
 const uiSlice = createSlice({
@@ -17,7 +19,12 @@ const uiSlice = createSlice({
                 open: action.payload.open,
             }
         },
-        
+        setChanged(state, action) {            
+            state.changed = action.payload
+        },
+        setShowCart(state) {
+            state.showCart = !state.showCart
+        }
     }
 })
 

@@ -4,8 +4,6 @@ import { CartState, ProductStore } from "../types/store";
 const initialState: CartState = {
   itemsList: [],
   totalQuantity: 0,
-  showCart: false,
-  changed: false
 };
 
 const cartSlice = createSlice({
@@ -18,9 +16,8 @@ const cartSlice = createSlice({
       state.totalQuantity = action.payload.totalQuantity;
       state.itemsList = action.payload.itemsList;
     },
-    addToCart(state, action) {      
+    addToCart(state, action) {
       const newItem: ProductStore = action.payload;
-      state.changed = true
 
       const existingItem = state.itemsList.find(
         (item) => item.id === newItem.id
@@ -38,8 +35,6 @@ const cartSlice = createSlice({
       }
     },
     removeFromCart(state, action) {
-      state.changed = true
-
       // Implement this reducer to remove items from the cart based on action.payload (item ID or index)
       const id = action.payload;
       const existingItem = state.itemsList.find((item) => item.id === id);
@@ -54,9 +49,6 @@ const cartSlice = createSlice({
           existingItem.totalPrice -= existingItem?.price;
         }
       }
-    },
-    setShowCart(state) {
-      state.showCart = !state.showCart;
     },
   },
 });

@@ -10,7 +10,7 @@ import { fetchData, sendCartData } from "./store/cart-actions";
 function App() {
   const dispatch = useAppDispatch();
 
-  const notification = useSelector((state: RootState)=> state.ui.notification)
+  const {changed, notification} = useSelector((state: RootState)=> state.ui)
   const cart = useSelector((state: RootState) => state.cart)
 
   useEffect(() => {
@@ -20,8 +20,8 @@ function App() {
     
   }, [dispatch])
 
-  useEffect(() => {    
-    if (cart.changed) {
+  useEffect(() => {
+    if (changed) {
       dispatch(sendCartData(cart))
     }
 

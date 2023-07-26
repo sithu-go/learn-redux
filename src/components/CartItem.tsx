@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import "./Cart.css";
 import { cartActions } from "../store/cart-slice";
-// import { cartActions } from "./../store/cartSlice";
+import { uiActions } from "../store/ui-slice";
 
 interface CartItemProps {
   id: number;
@@ -17,6 +17,7 @@ const CartItem: React.FC<CartItemProps> = ({ id, name, quantity, total, price })
 
   const decrementHandler = () => {
     dispatch(cartActions.removeFromCart(id))
+    dispatch(uiActions.setChanged(true))
   }
 
   const incrementHandler = () => {
@@ -25,6 +26,8 @@ const CartItem: React.FC<CartItemProps> = ({ id, name, quantity, total, price })
       name,
       price,
     }))
+
+    dispatch(uiActions.setChanged(true))
   }
   return (
     <div className="cartItem">

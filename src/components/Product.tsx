@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import "./Product.css";
 import { cartActions } from "../store/cart-slice";
+import { uiActions } from "../store/ui-slice";
 
 interface ProductProps {
   id: number;
@@ -16,6 +17,7 @@ const Product: React.FC<ProductProps> = ({ id, name, imgURL, price }) => {
       name,
       price,
     }))
+    dispatch(uiActions.setChanged(true))
   }
 
   return (

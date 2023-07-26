@@ -10,7 +10,7 @@ const Layout = () => {
   const itemsList = useSelector((state: RootState) => state.cart.itemsList)
   itemsList.forEach(item => total += item.totalPrice)
 
-  const showCart = useSelector((state: RootState) => state.cart.showCart)
+  const showCart = useSelector((state: RootState) => state.ui.showCart)
 
   return (
     <React.Fragment>

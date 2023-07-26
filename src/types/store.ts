@@ -10,8 +10,6 @@ export interface ProductStore {
 export interface CartState {
     itemsList: ProductStore[];
     totalQuantity: number;
-    showCart: boolean;
-    changed: boolean;
 }
 
 export interface NotificationStore {
@@ -20,6 +18,8 @@ export interface NotificationStore {
         type: AlertColor;
         open: boolean;
     } | null;
+    changed: boolean;
+    showCart: boolean;
 }
 
 export type AlertColor = "success" | "info" | "warning" | "error";
