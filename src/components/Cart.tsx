@@ -4,6 +4,7 @@ import { RootState } from "../store";
 import { cartActions } from "../store/cart-slice";
 const Cart = () => {
   const quantity = useSelector((state: RootState) => state.cart.totalQuantity);
+    
   const dispatch = useDispatch();
   return (
     <div className="cartIcon" onClick={() => dispatch(cartActions.setShowCart())}>

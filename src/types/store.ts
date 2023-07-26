@@ -11,6 +11,7 @@ export interface CartState {
     itemsList: ProductStore[];
     totalQuantity: number;
     showCart: boolean;
+    changed: boolean;
 }
 
 export interface NotificationStore {

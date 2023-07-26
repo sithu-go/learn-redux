@@ -16,7 +16,8 @@ const uiSlice = createSlice({
                 type: action.payload.type,
                 open: action.payload.open,
             }
-        }
+        },
+        
     }
 })
 
